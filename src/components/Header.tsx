@@ -1,6 +1,7 @@
 // src/components/Header.tsx
 import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header: React.FC = () => {
   return (
@@ -34,6 +35,9 @@ const Header: React.FC = () => {
               <Button variant="outline-success" className="btn-secondary-custom ms-lg-3">
                 Obtén tu Cotización
               </Button>
+              <Nav.Item className="ms-lg-3">
+                <LanguageSwitcher /> {/* Aquí se integra el componente */}
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
