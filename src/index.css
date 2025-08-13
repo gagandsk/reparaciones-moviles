@@ -1,0 +1,35 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #0d47a1; /* Azul oscuro */
+  --secondary-color: #43a047; /* Verde de acento */
+  --dark-color: #212529; /* Negro para el texto */
+  --light-color: #f8f9fa; /* Gris claro para fondos */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-color);
+  background-color: #fff;
+}
+
+/* Clases personalizadas basadas en la paleta */
+.bg-primary-custom {
+  background-color: var(--primary-color) !important;
+}
+
+.text-primary-custom {
+  color: var(--primary-color) !important;
+}
+
+.btn-secondary-custom {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: #fff !important;
+}
+
+.navbar-brand .text-primary-custom {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
