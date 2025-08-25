@@ -1,17 +1,24 @@
-// src/App.tsx
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import AboutUs from './pages/AboutUs';
+import './index.css';
+import FAQ from './pages/FAQ';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Container>
-        {/* Aquí irá el resto del contenido de la página */}
-        <h1 className="mt-5">¡Bienvenido a FixTeam!</h1>
-      </Container>
-    </>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/faq" element={<FAQ />} />
+        </Routes>
+      </main>
+      <Footer />
+    </Router>
   );
 }
 
