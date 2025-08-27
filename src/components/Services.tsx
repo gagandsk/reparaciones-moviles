@@ -7,10 +7,10 @@ const Services: React.FC = () => {
   const { translations } = useLanguage();
 
   return (
-    <section id="services" className="py-5 bg-light-custom">
+    <section id="services" className="py-5 bg-light-custom mt-5">
       <Container>
-        <h2 className="text-center fw-bold mb-5">{translations.servicesTitle}</h2>
-        <Row xs={1} md={2} lg={3} className="g-4">
+        <h2 className="text-center fw-bold mb-3 text-dark section-title">{translations.servicesTitle}</h2>
+        <Row xs={1} md={2} lg={3} className="g-4 mt-4">
           {translations.servicesList.map((service, index) => (
             <Col key={index}>
               <Card className="h-100 text-center p-4 shadow-sm border-0 rounded-3 service-card">

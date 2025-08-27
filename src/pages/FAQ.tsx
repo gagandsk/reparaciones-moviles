@@ -7,7 +7,7 @@ const FAQ: React.FC = () => {
   const { translations } = useLanguage();
 
   return (
-    <section className="py-4 bg-light-custom">
+    <section className="py-4 bg-light-custom mt-5">
       <Container className="my-5">
         <h2 className="text-center fw-bold mb-5">{translations.faq.title}</h2>
         <Accordion defaultActiveKey="0">

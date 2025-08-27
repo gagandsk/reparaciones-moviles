@@ -22,12 +22,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
 
   const translations = {
     es: {
+      brand: "Access Store",
+      slogan: "Reparaciones rápidas y fiables para tus dispositivos.",
       services: "Servicios",
       buy: "Compramos Dispositivos",
       contact: "Contacto",
-      heroTitle: "Reparaciones rápidas de teléfonos en 45 minutos.",
+      heroTitle: "Reparamos teléfonos, tablets y gadgets",
       heroSubtitle:
-        "Soluciones eficientes para tu iPhone, Samsung y más. Compra de dispositivos rotos.",
+        "¡Nuestro nombre lo dice todo! Lo reparamos y lo hacemos rápido. No importa el tipo de dispositivo, lo arreglaremos a un precio justo",
       repairMyDevice: "Repara mi Dispositivo",
       heroSlides: [
         {
@@ -44,9 +46,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
             "La confianza de miles de clientes satisfechos nos respalda.",
         },
       ],
-      fastFixHeroTitle: "Lo Arreglamos Casi Tan Rápido Como Lo Rompes.",
-      fastFixHeroDescription:
-        "Realizamos reparaciones de teléfono rápidas. En la mayoría de los casos, los técnicos podrán reparar tu dispositivo en solo minutos; normalmente, tu teléfono estará listo en 45 minutos o menos.",
+      fastFixHeroTitle: "Reparaciones Confiables, Resultados Garantizados",
+      fastFixHeroDescription: "Ofrecemos un servicio de reparación de teléfonos preciso y seguro. Nuestros técnicos especializados trabajan con el máximo cuidado para devolver a tu dispositivo toda su funcionalidad.",
       servicesTitle: "Nuestros Servicios",
       servicesList: [
         {
@@ -80,7 +81,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         },
         {
           title: "Batería Agotada",
-          description: "BRAND?? realiza reemplazos de batería profesionales.",
+          description: "Access Store realiza reemplazos de batería profesionales.",
           icon: "bi-battery-half",
         },
       ],
@@ -119,13 +120,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         {
           title: "Garantía de Precio Bajo",
           description:
-            "Reparar es mejor que reemplazar, y BRAND?? supera a todas las demás empresas de reparación de teléfonos.",
+            "Reparar es mejor que reemplazar, y Access Store supera a todas las demás empresas de reparación de teléfonos.",
           icon: "bi-tags",
         },
         {
           title: "Garantía Superior",
           description:
-            "Más fuerte que cualquier funda, BRAND?? ofrece la garantía más fiable del mercado.",
+            "Más fuerte que cualquier funda, Access Store ofrece la garantía más fiable del mercado.",
           icon: "bi-gem",
         },
       ],
@@ -140,7 +141,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       formPhone: "Teléfono",
       formMessage: "Tu Mensaje",
       formButton: "Enviar Mensaje",
-      footerCopyright: "© 2020 NOMBRE MARCA Todos los derechos reservados.",
+      footerCopyright: "Todos los derechos reservados.",
       quickLinksTitle: "Enlaces Rápidos",
       repairServicesTitle: "Servicios de Reparación",
       informationTitle: "Información",
@@ -149,9 +150,9 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       mondaySaturdayAfternoon: "Lunes - Sábado: 16:30 a 20:30",
       quickLinks: [
         { text: "Inicio", href: "/" },
-        { text: "Nosotros", href: "#about" },
+        { text: "Nosotros", href: "/about" },
         { text: "Servicios", href: "#servicios" },
-        { text: "Contacto", href: "#contacto" },
+        { text: "Contacto", href: "/business" },
       ],
       repairServices: [
         { text: "Smartphone", href: "#smartphone" },
@@ -164,10 +165,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         { text: "Términos y Condiciones", href: "/terms" },
       ],
       aboutUsTitle: "Quiénes Somos",
+      aboutUs: "Sobre nosotros",
+
       aboutUsParagraph1:
-        "Somos tu equipo de soporte técnico 24/7, listos para configurar y reparar tu móvil, tablet o computadora, y ayudarte a dominarlo. Podemos ayudarte en tiendas seleccionadas y por teléfono.",
+        "Somos tu equipo de soporte técnico 24/7, listos para configurar y reparar tu móvil, tablet o computadora, y ayudarte a dominarlo.",
       aboutUsParagraph2:
-        "En BRAND??, estamos obsesionados con los gadgets y los dispositivos. Somos las personas que hacen cola el día del lanzamiento esperando el último smartphone o consola de videojuegos. Nos encanta todo lo relacionado con la tecnología, pero no confundas nuestra pasión con esnobismo. No nos autodenominamos genios, pero somos expertos en lo que hacemos.",
+        "En Access Store, estamos obsesionados con los gadgets y los dispositivos. Somos las personas que hacen cola el día del lanzamiento esperando el último smartphone o consola de videojuegos. Nos encanta todo lo relacionado con la tecnología, pero no confundas nuestra pasión con esnobismo. No nos autodenominamos genios, pero somos expertos en lo que hacemos.",
       customer_support: "Atención al cliente",
       customer_support_description: "¿Tienes alguna pregunta? ¿Necesitas ayuda? Ponte en contacto con nosotros.",
       send_us_a_message: "Envíanos un Mensaje",
@@ -179,7 +182,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       value3Title: "Calidad en Repuestos",
       value3Text: "Utilizamos solo componentes de la más alta calidad para asegurar reparaciones duraderas.",
       meetTheTeam: "Conoce a Nuestro Equipo",
-      teamMemberBio: "John es el técnico principal de BRAND??. Con una pasión por la tecnología y un compromiso con la excelencia, se asegura de que cada reparación se realice con la máxima precisión.",
+      teamMemberBio: "John es el técnico principal de Access Store. Con una pasión por la tecnología y un compromiso con la excelencia, se asegura de que cada reparación se realice con la máxima precisión.",
       aboutUsCTA: "¿Necesitas una reparación rápida y fiable?",
       viewServices: "Ver nuestros servicios",
       faq: {
@@ -205,15 +208,78 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       },
       formSending: "Enviando...",
       formSuccess: "¡Mensaje enviado con éxito!",
-      formError: "Ocurrió un error. Por favor, inténtalo de nuevo."
+      formError: "Ocurrió un error. Por favor, inténtalo de nuevo.",
+      years_of_experience: "Años de Experiencia",
+      successful_repairs: "Reparaciones Exitosas",
+      service_available: "Servicio Disponible",
+      warranty: "Garantía",
+      whyChooseUsDescription: "Descubre por qué miles de clientes confían en nosotros para sus reparaciones",
+      testimonialsTitle: "Testimonios",
+      repairDevice: "Repara mi Dispositivo",
+      budgetTitle: "Solicita tu Presupuesto de Reparación",
+      business: "Reparaciones para empresas",
+      businessRepairsText: "Los dispositivos rotos y de bajo rendimiento pueden frenar la productividad de grandes y pequeñas empresas. Acces Store puede hacer que tu negocio vuelva a prosperar",
+      businessRepairsTitle: "Nuestras reparaciones son cosa seria",
+      budget_calculator: "Calcula presupuesto",
+      benefits_title: "Beneficios de trabajar con nosotros",
+      benefits_list: [
+        {
+          title: "Mejores precios garantizados",
+          description: "Reparar siempre es mejor que reemplazar. Nuestros precios superan a los de cualquier otra tienda de reparación.",
+          icon: "bi-tags"
+        },
+        {
+          title: "Diagnósticos gratis",
+          description: "Revisamos tu dispositivo sin coste para identificar el problema de manera precisa.",
+          icon: "bi-search"
+        },
+        {
+          title: "Prioridad de trabajo",
+          description: "Tus reparaciones reciben prioridad para que tu dispositivo esté listo lo antes posible.",
+          icon: "bi-lightning-charge"
+        },
+        {
+          title: "Reparaciones urgentes",
+          description: "Servicio exprés para que no te quedes sin tu dispositivo en momentos importantes.",
+          icon: "bi-stopwatch"
+        },
+        {
+          title: "Flexibilidad de pago",
+          description: "Diferentes opciones de pago adaptadas a tus necesidades.",
+          icon: "bi-credit-card"
+        },
+        {
+          title: "Recogida y entrega",
+          description: "Nos encargamos de recoger y entregar tu dispositivo sin que tengas que moverte.",
+          icon: "bi-truck"
+        },
+        {
+          title: "Máxima calidad de recambios",
+          description: "Usamos únicamente repuestos de la más alta calidad para garantizar durabilidad.",
+          icon: "bi-award"
+        },
+        {
+          title: "Garantía extendida sin coste",
+          description: "Todas nuestras reparaciones cuentan con garantía extra, sin cargos adicionales.",
+          icon: "bi-shield-check"
+        }
+      ]
     },
     en: {
+      brand: "Access Store",
+      slogan: "Fast and reliable repairs for your devices.",
       services: "Services",
       buy: "We Buy Devices",
       contact: "Contact",
-      heroTitle: "Fast Phone Repairs in 45 minutes.",
+      
+      heroTitle: "We Fix Phones, Tablets And Gadgets",
+      fastRepair: "We Repair Devices Fast",
+      expertSolutions: "Expert Tech Solutions",
+      likeNew: "Your Phone Like New",
+      secureRepairs: "Fast & Secure Repairs",
+      gadgetExperts: "Gadget Repair Experts",
       heroSubtitle:
-        "Efficient solutions for your iPhone, Samsung and more. We buy broken devices.",
+        "Our name says it all! We fix it and we fix it fast. No matter what type of device it is, we will repair it for a fair price.",
       repairMyDevice: "Repair My Device",
       heroSlides: [
         {
@@ -230,9 +296,8 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
             "The trust of thousands of satisfied customers backs us up.",
         },
       ],
-      fastFixHeroTitle: "We Can Fix It Almost As Fast As You Can Break It.",
-      fastFixHeroDescription:
-        "We do fast phone repair. In most cases, technicians will be able to repair your device in just minutes, we’ll normally get your phone in and out in 45 minutes or less.",
+      fastFixHeroTitle: "Reliable Repairs, Guaranteed Results",
+      fastFixHeroDescription: "We provide precise and secure phone repair services. Our expert technicians work with great care to restore your device to full functionality.",
       servicesTitle: "Our Services",
       servicesList: [
         {
@@ -265,7 +330,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         },
         {
           title: "Dead Battery",
-          description: "BRAND?? performs professional battery replacements.",
+          description: "Access Store performs professional battery replacements.",
           icon: "bi-battery-half",
         },
       ],
@@ -304,13 +369,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         {
           title: "Low Price Guarantee",
           description:
-            "Repairing beats replacing, and BRAND?? beats all other phone repair companies.",
+            "Repairing beats replacing, and Access Store beats all other phone repair companies.",
           icon: "bi-tags",
         },
         {
           title: "Superior Warranty",
           description:
-            "Stronger than any phone case, BRAND?? offers the most reliable warranty on the market.",
+            "Stronger than any phone case, Access Store offers the most reliable warranty on the market.",
           icon: "bi-gem",
         },
       ],
@@ -325,7 +390,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       formPhone: "Phone",
       formMessage: "Your Message",
       formButton: "Send Message",
-      footerCopyright: "© 2020 BRAND. All rights reserved.",
+      footerCopyright: "© 2020 Access Store. All rights reserved.",
       quickLinksTitle: "Quick Links",
       repairServicesTitle: "Repair Services",
       informationTitle: "Information",
@@ -334,14 +399,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       mondaySaturdayAfternoon: "Monday - Saturday: 4:30 pm to 8:30 pm",
       quickLinks: [
         { text: "Home", href: "/" },
-        { text: "About Us", href: "#about" },
+        { text: "About Us", href: "/about" },
         { text: "Services", href: "#servicios" },
-        { text: "Contact", href: "#contacto" },
+        { text: "Contact", href: "/business" },
       ],
       repairServices: [
-        { text: "Smartphone", href: "#smartphone" },
-        { text: "Laptop", href: "#laptop" },
-        { text: "Computer", href: "#computer" },
+        { text: "Smartphone", href: "#" },
+        { text: "Laptop", href: "#" },
+        { text: "Computer", href: "#" },
       ],
       information: [
         { text: "FAQs", href: "/faq" },
@@ -349,10 +414,11 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
         { text: "Terms & Conditions", href: "/terms" },
       ],
       aboutUsTitle: "Who We Are",
+      aboutUs: "About Us",
       aboutUsParagraph1:
-        "We’re your 24/7 tech support team, ready to set up and fix your mobile, tablet or computer, and help you master it. We can help you in selected stores and over the phone.",
+        "We’re your 24/7 tech support team, ready to set up and fix your mobile, tablet or computer, and help you master it.",
       aboutUsParagraph2:
-        "At BRAND?? we are obsessed with gadgets and gizmos. We’re the folks standing in line on launch day waiting for the latest smartphone or gaming console.We love all things tech, but don’t confuse our passion for snobbery. We’re not self-described geniuses, but we are experts at what we do.",
+        "At Access Store we are obsessed with gadgets and gizmos. We’re the folks standing in line on launch day waiting for the latest smartphone or gaming console.We love all things tech, but don’t confuse our passion for snobbery. We’re not self-described geniuses, but we are experts at what we do.",
       customer_support: "Customer Support",
       customer_support_description: "Have a question? Need some help? Get in touch with us.",
       send_us_a_message: "Send Us a Message",
@@ -364,7 +430,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       value3Title: "Quality Parts",
       value3Text: "We use only the highest quality components to ensure long-lasting repairs.",
       meetTheTeam: "Meet Our Team",
-      teamMemberBio: "John is the head technician at BRAND??. With a passion for technology and a commitment to excellence, he ensures every repair is performed with the utmost precision.",
+      teamMemberBio: "John is the head technician at Access Store. With a passion for technology and a commitment to excellence, he ensures every repair is performed with the utmost precision.",
       aboutUsCTA: "Need a fast and reliable repair?",
       viewServices: "View Our Services",
       faq: {
@@ -390,7 +456,62 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       },
       formSending: "Sending...",
       formSuccess: "Message sent successfully!",
-      formError: "An error occurred. Please try again."
+      formError: "An error occurred. Please try again.",
+      years_of_experience: "Years of Experience",
+      successful_repairs: "Successful Repairs",
+      service_available: "Service Available",
+      warranty: "Warranty",
+      whyChooseUsDescription: "Discover why thousands of customers trust us with their repairs",
+      testimonialsTitle: "Testimonials",
+      repairDevice: "Repair My Device",
+      budgetTitle: "Request Your Repair Quote",
+      business: "Business repairs",
+      businessRepairsText: "Broken and slow-performing devices can grind productivity down to a halt for big and small companies. Acces Store can get business booming again",
+      businessRepairsTitle: "Our Repairs Mean Business",
+      budget_calculator: "Get a quote",
+      benefits_title: "Benefits of working with us",
+      benefits_list: [
+        {
+          title: "Best prices guaranteed",
+          description: "Repairing is always better than replacing. Our prices beat any other repair shop.",
+          icon: "bi-tags"
+        },
+        {
+          title: "Free diagnostics",
+          description: "We check your device at no cost to identify the issue accurately.",
+          icon: "bi-search"
+        },
+        {
+          title: "Work priority",
+          description: "Your repairs receive priority so your device is ready as soon as possible.",
+          icon: "bi-lightning-charge"
+        },
+        {
+          title: "Urgent repairs",
+          description: "Express service so you don’t stay without your device when you need it most.",
+          icon: "bi-stopwatch"
+        },
+        {
+          title: "Payment flexibility",
+          description: "Different payment options tailored to your needs.",
+          icon: "bi-credit-card"
+        },
+        {
+          title: "Pickup and delivery",
+          description: "We take care of picking up and delivering your device so you don’t have to move.",
+          icon: "bi-truck"
+        },
+        {
+          title: "Top quality spare parts",
+          description: "We only use the highest quality parts to ensure durability.",
+          icon: "bi-award"
+        },
+        {
+          title: "Extended warranty at no cost",
+          description: "All our repairs come with extra warranty, with no additional charges.",
+          icon: "bi-shield-check"
+        }
+      ]
     },
   };
 

@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
 import './index.css';
 import FAQ from './pages/FAQ';
+import Business from './pages/Business';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/business" element={<Business />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>

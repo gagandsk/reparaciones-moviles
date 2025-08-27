@@ -1,24 +1,24 @@
 // src/pages/HomePage.tsx
 import React from 'react';
 import Hero from '../components/Hero';
-import Contact from '../components/Contact';
+import BudgetForm from '../components/BudgetForm';
 import FastFixHero from '../components/FastFixHero';
 import MapSection from '../components/MapSection';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonial';
+import RepairImage from '../assets/mobile-repair1.jpg';
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
       <WhyChooseUs />
-      <FastFixHero />
+      <FastFixHero image={RepairImage} />
       <Services />
-      <MapSection />
       <Testimonials />
       <MapSection />
-      <Contact />
+      <BudgetForm />
     </>
   );
 };

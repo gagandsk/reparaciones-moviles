@@ -1,28 +1,43 @@
-// src/components/FastFixHero.tsx
 import React from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
-import fastFixImage from '../assets/fast-fix.jpg'
 
-const FastFixHero: React.FC = () => {
+interface FastFixHeroProps {
+  image: string; // la imagen se recibe como prop
+}
+
+const FastFixHero: React.FC<FastFixHeroProps> = ({ image }) => {
   const { translations } = useLanguage();
 
   return (
-    <section id="fast-fix-hero" className="bg-dark-custom text-white">
-      <Row className="g-0 d-flex align-items-center">
+    <section 
+      id="fast-fix-hero" 
+      className="position-relative"
+      style={{
+        minHeight: '500px',
+        background: `linear-gradient(to right, rgba(223, 223, 223, 1) 20%, rgba(0, 0, 0, 0) 70%), url(${image}) no-repeat right center / cover`
+      }}
+    >
+      <Row className="g-0 h-100 align-items-center position-relative" style={{ zIndex: 2 }}>
         <Col lg={6} className="p-5 text-center text-lg-start">
-          <h2 className="display-4 fw-bold mb-3">{translations.fastFixHeroTitle}</h2>
-          <p className="fs-5 text-light-custom">{translations.fastFixHeroDescription}</p>
+          <h2 className="display-4 fw-bold mb-3 text-dark">
+            {translations.fastFixHeroTitle || 'Our Repairs Mean Business.'}
+          </h2>
+          <div 
+            className="mb-3" 
+          ></div>
+          <p className="fs-5 text-dark mb-4">
+            {translations.fastFixHeroDescription || 'Broken and slow-performing devices can grind productivity down to a halt for big and small companies. FixTech can get business booming again.'}
+          </p>
+          <Button 
+            variant="light" 
+            className="rounded-pill px-4 py-2"
+            href='/business'
+          >
+            {translations.fastFixHeroButtonText || 'Contact Us'}
+          </Button>
         </Col>
-        <Col lg={6}>
-          <Image 
-            src={fastFixImage} 
-            alt="Reparación rápida" 
-            fluid 
-            className="w-100" 
-            style={{ minHeight: '300px', objectFit: 'cover' }}
-          />
-        </Col>
+        <Col lg={6}></Col>
       </Row>
     </section>
   );
