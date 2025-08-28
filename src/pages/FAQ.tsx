@@ -9,7 +9,7 @@ const FAQ: React.FC = () => {
   return (
     <section className="py-4 bg-light-custom mt-5">
       <Container className="my-5">
-        <h2 className="text-center fw-bold mb-5">{translations.faq.title}</h2>
+        <h2 className="text-center fw-bold mb-5">{translations.faqTitle}</h2>
         <Accordion defaultActiveKey="0">
           {translations.faq.questions.map((item, index) => (
             <Card className="mb-3 rounded-3 shadow-sm border-0" key={index}>

@@ -7,7 +7,7 @@ import MapSection from '../components/MapSection';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonial';
-import RepairImage from '../assets/mobile-repair1.jpg';
+import RepairImage from '../assets/iphone.jpg';
 
 const HomePage: React.FC = () => {
   return (

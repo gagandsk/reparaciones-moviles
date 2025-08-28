@@ -1,9 +1,9 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FastFixHeroProps {
-  image: string; // la imagen se recibe como prop
+  image: string;
 }
 
 const FastFixHero: React.FC<FastFixHeroProps> = ({ image }) => {
@@ -29,13 +29,6 @@ const FastFixHero: React.FC<FastFixHeroProps> = ({ image }) => {
           <p className="fs-5 text-dark mb-4">
             {translations.fastFixHeroDescription || 'Broken and slow-performing devices can grind productivity down to a halt for big and small companies. FixTech can get business booming again.'}
           </p>
-          <Button 
-            variant="light" 
-            className="rounded-pill px-4 py-2"
-            href='/business'
-          >
-            {translations.fastFixHeroButtonText || 'Contact Us'}
-          </Button>
         </Col>
         <Col lg={6}></Col>
       </Row>

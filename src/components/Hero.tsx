@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             variant="primary"
             className="fw-bold hero-button mt-4 p-3"
             style={{ transition: "transform 0.3s ease-in-out", background: 'var(--yellow-bright)', borderColor: 'var(--yellow-bright)' }}
-            href={translations.repairMyDeviceLink || "#budget-calc"}
+            href={translations.repairMyDevice || "#budget-calc"}
           >
             {translations.repairMyDevice || "Repair My Device"}
           </Button>

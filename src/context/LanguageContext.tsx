@@ -1,10 +1,162 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
-import shopImg from "../assets/hero-bg.jpg";
+import React, { createContext, useContext, useState } from "react";
+import type { ReactNode } from "react";
+
+interface HeroSlide {
+  title: string;
+  subtitle: string;
+}
+
+interface ServiceItem {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface WhyChooseUsItem {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface QuickLink {
+  text: string;
+  href: string;
+}
+
+interface FaqQuestion {
+  question: string;
+  answer: string;
+}
+
+interface FaqSection {
+  title: string;
+  questions: FaqQuestion[];
+}
+
+interface ProblemItem {
+  title: string;
+}
+
+interface BenefitItem {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+interface Translations {
+  brand: string;
+  slogan: string;
+  services: string;
+  buy: string;
+  contact: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  repairMyDevice: string;
+  heroSlides: HeroSlide[];
+  fastFixHeroTitle: string;
+  fastFixHeroDescription: string;
+  servicesTitle: string;
+  servicesList: ServiceItem[];
+  whyChooseUsTitle: string;
+  whyChooseUsList: WhyChooseUsItem[];
+  contactTitle: string;
+  contactSubtitle: string;
+  contactAddress: string;
+  contactPhone: string;
+  contactEmail: string;
+  formName: string;
+  formEmail: string;
+  formPhone: string;
+  formMessage: string;
+  formButton: string;
+  footerCopyright: string;
+  quickLinksTitle: string;
+  repairServicesTitle: string;
+  informationTitle: string;
+  hoursTitle: string;
+  mondaySaturdayMorning: string;
+  mondaySaturdayAfternoon: string;
+  quickLinks: QuickLink[];
+  repairServices: QuickLink[];
+  information: QuickLink[];
+  aboutUsTitle: string;
+  aboutUs: string;
+  aboutUsParagraph1: string;
+  aboutUsParagraph2: string;
+  customer_support: string;
+  customer_support_description: string;
+  send_us_a_message: string;
+  ourValuesTitle: string;
+  value1Title: string;
+  value1Text: string;
+  value2Title: string;
+  value2Text: string;
+  value3Title: string;
+  value3Text: string;
+  meetTheTeam: string;
+  teamMemberBio: string;
+  aboutUsCTA: string;
+  viewServices: string;
+  faqTitle: string;
+  faq: FaqSection;
+  formSending: string;
+  formSuccess: string;
+  formError: string;
+  years_of_experience: string;
+  successful_repairs: string;
+  service_available: string;
+  warranty: string;
+  whyChooseUsDescription: string;
+  testimonialsTitle: string;
+  repairDevice: string;
+  budgetTitle: string;
+  business: string;
+  businessRepairsText: string;
+  businessRepairsTitle: string;
+  budget_calculator: string;
+  benefits_title: string;
+  benefits_list: BenefitItem[]; 
+  budgetSubtitle: string;
+  freeBudget: string;
+  notFoundTitle: string;
+  notFoundMessage: string;
+  notFoundHelpText: string;
+  personal_info: string;
+  weNeedYourData: string;
+  successMessage: string;
+  errorMessage: string;
+  device_and_problem: string;
+  repair_request_prompt: string;
+  select_device_brand: string;
+  what_is_the_problem: string;
+  requiredProblem: string;
+  additional_details: string;
+  extra_info_optional: string;
+  describe_additional_details: string;
+  more_details_help: string;
+  request_summary: string;
+  brandForm: string;
+  model: string;
+  problem: string;
+  next: string;
+  prev: string;
+  sending: string;
+  request_quote: string;
+  formNameRequired: string;
+  formBrand: string;
+  formPhoneRequired: string;
+  formProblemRequired: string;
+  formEmailInvalid: string;
+  formProblems: { [key: string]: string };
+  formModel: string;
+  repairMyDeviceFormProblems: ProblemItem[];
+  formAdditionalComments: string;
+}
 
 interface LanguageContextType {
   language: string;
-  setLanguage: (lang: string) => void;
-  translations: { [key: string]: string };
+  setLanguage: React.Dispatch<React.SetStateAction<string>>;
+  translations: Translations;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -84,6 +236,21 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           description: "Access Store realiza reemplazos de batería profesionales.",
           icon: "bi-battery-half",
         },
+      ],
+      repairMyDeviceFormProblems: [
+        { title: "Pantalla" },
+        { title: "Batería" },
+        { title: "Cámara frontal" },
+        { title: "Cámara trasera" },
+        { title: "Chasis/Cristal trasero" },
+        { title: "Puerto de Carga" },
+        { title: "Botones Volumen/Encendido" },
+        { title: "Daños por agua" },
+        { title: "No enciende" },
+        { title: "Micrófono" },
+        { title: "Altavoz (problemas de sonido)" },
+        { title: "No lo sé" },
+        { title: "Otros" }
       ],
       formProblem: "Selecciona un problema",
       formBrand: "Selecciona una marca",
@@ -185,6 +352,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       teamMemberBio: "John es el técnico principal de Access Store. Con una pasión por la tecnología y un compromiso con la excelencia, se asegura de que cada reparación se realice con la máxima precisión.",
       aboutUsCTA: "¿Necesitas una reparación rápida y fiable?",
       viewServices: "Ver nuestros servicios",
+      faqTitle: "Preguntas Frecuentes",
       faq: {
         title: "Preguntas Frecuentes",
         questions: [
@@ -203,7 +371,15 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           {
             question: "¿Aceptan pagos con tarjeta de crédito?",
             answer: "Sí, aceptamos todos los métodos de pago principales, incluyendo tarjetas de crédito, débito, y pagos móviles."
-          }
+          },
+          {
+            question: "¿Qué tipo de reparaciones hacemos?",
+            answer: "En Access Store nos especializamos en el reemplazo de pantallas, táctiles y LCD, pero nuestros técnicos también atienden una amplia variedad de problemas, incluyendo botones de encendido, reemplazo de botón de inicio, parlantes, micrófonos, conexiones Wi-Fi, 3G y 4G, puertos de carga, baterías y mucho más."
+          },
+          {
+            question: "¿Qué servicio de reparación es el más adecuado para mí?",
+            answer: "En Access Store priorizamos la comodidad de nuestros clientes, ofreciendo reparación a domicilio, reparaciones rápidas en nuestras oficinas en 30 minutos, y servicio de recogida y entrega en Barcelona."
+          },
         ]
       },
       formSending: "Enviando...",
@@ -263,7 +439,33 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           description: "Todas nuestras reparaciones cuentan con garantía extra, sin cargos adicionales.",
           icon: "bi-shield-check"
         }
-      ]
+      ],
+      budgetSubtitle: "Obtén una estimación rápida y precisa para la reparación de tu dispositivo",
+      freeBudget: "Presupuesto Gratuito",
+      notFoundTitle: "Página no encontrada",
+      notFoundMessage: "Lo sentimos, la página que buscas no existe o ha sido movida.",
+      notFoundHelpText: "¿Necesitas ayuda?",
+      personal_info: "Información Personal",
+      weNeedYourData: "Necesitamos tus datos para contactarte",
+      successMessage : "Presupuesto solicitado con éxito",
+      errorMessage: "Error al enviar el presupuesto. Inténtalo de nuevo más tarde.",
+      device_and_problem: "Dispositivo y Problema",
+      repair_request_prompt: "Cuéntanos qué necesitas reparar",
+      select_device_brand: "Selecciona la marca de tu dispositivo",
+      what_is_the_problem: "¿Cuál es el problema?",
+      requiredProblem: "El problema es requerido.",
+      additional_details: "Detalles Adicionales",
+      extra_info_optional: "Información extra que nos ayude (opcional)",
+      describe_additional_details: "Describe cualquier detalle adicional sobre el problema, cuándo ocurrió, si el dispositivo funciona parcialmente, etc.",
+      more_details_help: "Mientras más detalles nos proporciones, mejor podremos ayudarte con tu presupuesto.",
+      request_summary: "Resumen de tu solicitud",
+      brandForm: "Marca",
+      model: "Modelo",
+      problem: "Problema",
+      next: "Siguiente",
+      prev: "Anterior",
+      sending: "Enviando...",
+      request_quote: "Solicitar",
     },
     en: {
       brand: "Access Store",
@@ -271,7 +473,6 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       services: "Services",
       buy: "We Buy Devices",
       contact: "Contact",
-      
       heroTitle: "We Fix Phones, Tablets And Gadgets",
       fastRepair: "We Repair Devices Fast",
       expertSolutions: "Expert Tech Solutions",
@@ -333,6 +534,21 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           description: "Access Store performs professional battery replacements.",
           icon: "bi-battery-half",
         },
+      ],
+      repairMyDeviceFormProblems: [
+        { title: "Screen" },
+        { title: "Battery" },
+        { title: "Front Camera" },
+        { title: "Rear Camera" },
+        { title: "Back Case/Glass" },
+        { title: "Charging Port" },
+        { title: "Volume/Power Buttons" },
+        { title: "Water Damage" },
+        { title: "Won't Turn On" },
+        { title: "Microphone" },
+        { title: "Speaker (Sound Issues)" },
+        { title: "I Don't Know" },
+        { title: "Other" }
       ],
       formProblem: "Select a problem",
       formBrand: "Select a brand",
@@ -433,6 +649,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
       teamMemberBio: "John is the head technician at Access Store. With a passion for technology and a commitment to excellence, he ensures every repair is performed with the utmost precision.",
       aboutUsCTA: "Need a fast and reliable repair?",
       viewServices: "View Our Services",
+      faqTitle: "Frequently Asked Questions",
       faq: {
         title: "Frequently Asked Questions",
         questions: [
@@ -451,6 +668,14 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           {
             question: "Do you accept credit card payments?",
             answer: "Yes, we accept all major payment methods, including credit cards, debit cards, and mobile payments."
+          },
+          {
+            question: "What type of repairs do you perform?",
+            answer: "At Access Store, we specialize in screen, touch, and LCD replacements, but our technicians are also trained to handle a wide range of issues, including power buttons, home button replacement, speakers, microphones, Wi-Fi, 3G and 4G connections, charging ports, batteries, and more."
+          },
+          {
+            question: "Which repair service is best for me?",
+            answer: "At Access Store, we focus on customer convenience, offering home repairs, quick 30-minute service at our offices, and pick-up and delivery service in Barcelona."
           }
         ]
       },
@@ -502,7 +727,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           icon: "bi-truck"
         },
         {
-          title: "Top quality spare parts",
+          title: "Top quality spºare parts",
           description: "We only use the highest quality parts to ensure durability.",
           icon: "bi-award"
         },
@@ -511,7 +736,33 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
           description: "All our repairs come with extra warranty, with no additional charges.",
           icon: "bi-shield-check"
         }
-      ]
+      ],
+      budgetSubtitle: "Get a quick and accurate estimate for your device repair",
+      freeBudget: "Free Quote",
+      notFoundTitle: "Page not found",
+      notFoundMessage: "Sorry, the page you are looking for doesn't exist or has been moved.",
+      notFoundHelpText: "Need help?",
+      personal_info: "Personal Information",
+      weNeedYourData: "We need your details to contact you",
+      successMessage : "Quote requested successfully",
+      errorMessage: "Error sending the quote. Please try again later.",
+      device_and_problem: "Device and Problem",
+      repair_request_prompt: "Tell us what you need to repair",
+      select_device_brand: "Select your device brand",
+      what_is_the_problem: "What is the problem?",
+      requiredProblem: "The problem is required.",
+      additional_details: "Additional Details",
+      extra_info_optional: "Extra information to help us (optional)",
+      describe_additional_details: "Describe any additional details about the problem, when it happened, if the device works partially, etc.",
+      more_details_help: "The more details you provide, the better we can help you with your quote.",
+      request_summary: "Summary of your request",
+      brandForm: "Brand",
+      model: "Model",
+      problem: "Problem",
+      next: "Next",
+      prev: "Previous",
+      sending: "Sending...",
+      request_quote: "Request",
     },
   };
 

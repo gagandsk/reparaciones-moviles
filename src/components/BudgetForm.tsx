@@ -3,6 +3,16 @@ import { Container, Row, Col, Form, Button, Card, Alert, Badge } from 'react-boo
 import { useLanguage } from '../context/LanguageContext';
 import emailjs from '@emailjs/browser';
 
+import apple from "../assets/apple.png";
+import google from "../assets/google.png";
+import huawei from "../assets/huawei.png";
+import motorola from "../assets/motorola.png";
+import oppo from "../assets/oppo.png";
+import samsung from "../assets/samsung.png";
+import sony from "../assets/sony.png";
+import xiaomi from "../assets/xiaomi.png";
+
+
 const SERVICE_ID = 'service_1ari839';
 const TEMPLATE_ID = 'template_nclqqyw';
 const PUBLIC_KEY = 'XAgPdQ1R-fghUzpJl';
@@ -10,6 +20,7 @@ const PUBLIC_KEY = 'XAgPdQ1R-fghUzpJl';
 const BudgetForm: React.FC = () => {
   const { translations } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const formInitialDetails = {
     name: '',
@@ -31,22 +42,13 @@ const BudgetForm: React.FC = () => {
 
   const [validated, setValidated] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  const [completedFields, setCompletedFields] = useState(0);
   const [isFormAnimating, setIsFormAnimating] = useState(false);
 
   const totalSteps = 3;
-  const totalRequiredFields = 5; // name, email, phone, brand, problem
 
   useEffect(() => {
     emailjs.init(PUBLIC_KEY);
   }, []);
-
-  // Calculate completion percentage
-  useEffect(() => {
-    const requiredFields = ['name', 'email', 'phone', 'brand', 'problem'];
-    const completed = requiredFields.filter((field) => formData[field as keyof typeof formData].trim() !== '').length;
-    setCompletedFields(completed);
-  }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -79,13 +81,17 @@ const BudgetForm: React.FC = () => {
   const nextStep = () => {
     const form = formRef.current;
     if (form && !canProceedToNextStep()) {
-      setValidated(true); // Trigger validation feedback
+      setValidated(true);
       return;
     }
     setIsFormAnimating(true);
     setTimeout(() => {
       setCurrentStep((prev) => Math.min(prev + 1, totalSteps));
       setIsFormAnimating(false);
+      // Scroll to the top of the card
+      if (cardRef.current) {
+        cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 300);
   };
 
@@ -94,6 +100,10 @@ const BudgetForm: React.FC = () => {
     setTimeout(() => {
       setCurrentStep((prev) => Math.max(prev - 1, 1));
       setIsFormAnimating(false);
+      // Optional: Scroll to top on prev step as well
+      if (cardRef.current) {
+        cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 300);
   };
 
@@ -112,28 +122,45 @@ const BudgetForm: React.FC = () => {
     try {
       if (form) {
         // Ensure form fields are populated with current state values
-        form.name.value = formData.name;
-        form.email.value = formData.email;
-        form.phone.value = formData.phone;
-        form.brand.value = formData.brand;
-        form.model.value = formData.model;
-        form.problem.value = formData.problem;
-        form.additionalComments.value = formData.additionalComments;
+        (form.elements.namedItem('name') as HTMLInputElement).value = formData.name;
+        (form.elements.namedItem('email') as HTMLInputElement).value = formData.email;
+        (form.elements.namedItem('phone') as HTMLInputElement).value = formData.phone;
+        (form.elements.namedItem('brand') as HTMLInputElement).value = formData.brand;
+        (form.elements.namedItem('model') as HTMLInputElement).value = formData.model;
+        (form.elements.namedItem('problem') as HTMLInputElement).value = formData.problem;
+        (form.elements.namedItem('additionalComments') as HTMLInputElement).value = formData.additionalComments;
 
         await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, {
           publicKey: PUBLIC_KEY,
         });
 
+        // Reset form and state
+        setFormData(formInitialDetails);
+        setValidated(false);
+        setCurrentStep(1);
+        setIsFormAnimating(false);
+        form.reset(); // Reset the native form element
+
+        // Show success message and clear it after 3 seconds
         setFormStatus({
           submitting: false,
           submitted: true,
           error: false,
           message: translations.successMessage,
         });
-        setFormData(formInitialDetails);
-        setValidated(false);
-        setCurrentStep(1);
-        setCompletedFields(0);
+
+        setTimeout(() => {
+          setFormStatus({
+            submitting: false,
+            submitted: false,
+            error: false,
+            message: '',
+          });
+          // Scroll to top after reset
+          if (cardRef.current) {
+            cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 3000); // Clear success message after 3 seconds
       }
     } catch (error) {
       console.error('FAILED...', error);
@@ -147,15 +174,15 @@ const BudgetForm: React.FC = () => {
   };
 
   const brands = [
-    { value: 'Apple', icon: '📱' },
-    { value: 'Samsung', icon: '📱' },
-    { value: 'Xiaomi', icon: '📱' },
-    { value: 'Oppo', icon: '📱' },
-    { value: 'Huawei', icon: '📱' },
-    { value: 'Google Pixel', icon: '📱' },
+    { value: 'Apple', icon: apple },
+    { value: 'Samsung', icon: samsung },
+    { value: 'Xiaomi', icon: xiaomi },
+    { value: 'Oppo', icon: oppo },
+    { value: 'Huawei', icon: huawei },
+    { value: 'Google Pixel', icon: google },
     { value: 'Realme', icon: '📱' },
-    { value: 'Sony', icon: '📱' },
-    { value: 'Motorola', icon: '📱' },
+    { value: 'Sony', icon: sony },
+    { value: 'Motorola', icon: motorola },
     { value: 'Otros', icon: '🔧' },
   ];
 
@@ -194,7 +221,7 @@ const BudgetForm: React.FC = () => {
                     placeholder={translations.formName}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {translations.requiredName || 'El nombre es requerido.'}
+                    {translations.formNameRequired}
                   </Form.Control.Feedback>
                 </Form.Group>
               </Col>
@@ -214,7 +241,7 @@ const BudgetForm: React.FC = () => {
                     placeholder={translations.formEmail}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {translations.requiredEmail || 'Por favor, ingrese un email válido.'}
+                    {translations.formEmailInvalid}
                   </Form.Control.Feedback>
                 </Form.Group>
               </Col>
@@ -235,7 +262,7 @@ const BudgetForm: React.FC = () => {
                     placeholder={translations.contactPhone}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {translations.requiredPhone || 'Por favor, ingrese un teléfono válido (7-15 dígitos).'}
+                    {translations.formPhoneRequired}
                   </Form.Control.Feedback>
                 </Form.Group>
               </Col>
@@ -248,7 +275,7 @@ const BudgetForm: React.FC = () => {
           <div style={contentStyle}>
             <div className="text-center mb-5">
               <div className="step-icon mb-3">
-                <i className="bi bi-phone display-4 text-success"></i>
+                <i className="bi bi-phone display-4 text-warning"></i>
               </div>
               <h3 className="fw-bold mb-2">{translations.device_and_problem}</h3>
               <p className="text-muted">{translations.repair_request_prompt}</p>
@@ -271,7 +298,7 @@ const BudgetForm: React.FC = () => {
                         borderColor: formData.brand === brand.value ? '#007bff' : '#dee2e6',
                       }}
                     >
-                      <div className="fs-4 mb-1">{brand.icon}</div>
+                      {/*<img src={brand.icon/* alt="" width={50}/><br></br>*/}
                       <small className="fw-semibold">{brand.value}</small>
                     </div>
                   </Col>
@@ -279,7 +306,7 @@ const BudgetForm: React.FC = () => {
               </Row>
               {validated && !formData.brand && (
                 <div className="invalid-feedback d-block">
-                  {translations.requiredBrand || 'La marca es requerida.'}
+                  {translations.formBrand}
                 </div>
               )}
             </Form.Group>
@@ -336,7 +363,7 @@ const BudgetForm: React.FC = () => {
           <div style={contentStyle}>
             <div className="text-center mb-5">
               <div className="step-icon mb-3">
-                <i className="bi bi-chat-text display-4 text-info"></i>
+                <i className="bi bi-chat-text display-4 text-warning"></i>
               </div>
               <h3 className="fw-bold mb-2">{translations.additional_details}</h3>
               <p className="text-muted">{translations.extra_info_optional}</p>
@@ -352,21 +379,22 @@ const BudgetForm: React.FC = () => {
                 name="additionalComments"
                 value={formData.additionalComments}
                 onChange={handleChange}
-                className="modern-input rounded-4 p-3 border-0 bg-light-custom shadow-sm"
+                className="modern-input rounded-4 p-3 border-2 bg-light-custom shadow-sm"
                 placeholder={translations.describe_additional_details}
               />
               <Form.Text className="text-muted">
+                <i className="bi bi-exclamation-circle-fill px-2 text-warning"></i>
                 {translations.more_details_help}
               </Form.Text>
             </Form.Group>
-            <Card className="summary-card bg-light border-0 rounded-4 p-4">
+            <Card className="summary-card bg-light border-1 rounded-4 p-4">
               <h5 className="fw-bold mb-3">
                 <i className="bi bi-clipboard-check me-2 text-success"></i>
                 {translations.request_summary}
               </h5>
               <Row>
                 <Col md={6}>
-                  <p><strong>{translations.formName}</strong> {formData.name}</p>
+                  <p><strong>{translations.formName}:</strong> {formData.name}</p>
                   <p><strong>{translations.formEmail}:</strong> {formData.email}</p>
                   <p><strong>{translations.formPhone}:</strong> {formData.phone}</p>
                 </Col>
@@ -402,7 +430,7 @@ const BudgetForm: React.FC = () => {
         </div>
         <Row className="justify-content-center">
           <Col lg={10} xl={8}>
-            <Card className="modern-card shadow-lg border-0 rounded-4 overflow-hidden">
+            <Card className="modern-card shadow-lg border-0 rounded-4 overflow-hidden" ref={cardRef}>
               <Card.Body className="p-5">
                 {formStatus.submitted && (
                   <Alert
@@ -435,7 +463,6 @@ const BudgetForm: React.FC = () => {
                       disabled={currentStep === 1}
                       className="px-4 py-2 rounded-pill"
                     >
-                      <i className="bi bi-arrow-left me-2"></i>
                       {translations.prev}
                     </Button>
                     {currentStep < totalSteps ? (
@@ -445,13 +472,12 @@ const BudgetForm: React.FC = () => {
                         className="btn-modern px-4 py-2 rounded-pill"
                       >
                         {translations.next}
-                        <i className="bi bi-arrow-right ms-2"></i>
                       </Button>
                     ) : (
                       <Button
                         type="submit"
                         disabled={formStatus.submitting || !canProceedToNextStep()}
-                        className="btn-modern px-5 py-2 rounded-pill"
+                        className="btn-modern px-5 py-2 rounded-pill request_quote"
                       >
                         {formStatus.submitting ? (
                           <>
@@ -460,7 +486,6 @@ const BudgetForm: React.FC = () => {
                           </>
                         ) : (
                           <>
-                            <i className="bi bi-send me-2"></i>
                             {translations.request_quote}
                           </>
                         )}

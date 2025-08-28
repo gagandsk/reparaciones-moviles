@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Card } from "react-bootstrap";
 import { useLanguage } from "../context/LanguageContext";
+import img2 from '../assets/business1.jpg';
+import img1 from '../assets/business2.jpg';
+import img3 from '../assets/business.jpg';
 import img4 from '../assets/mobile-repair1.jpg';
-import img2 from '../assets/mobile-repair2.jpg';
-import img3 from '../assets/mobile-repair3.jpg';
-import img1 from '../assets/business.jpg';
 import Contact from "../components/Contact";
 
 const AboutUs: React.FC = () => {
@@ -104,14 +104,6 @@ const AboutUs: React.FC = () => {
                     {item.description}
                   </Card.Text>
                   
-                  {/* Elemento adicional para destacar (opcional) */}
-                  {item.highlight && (
-                    <div className="highlight-badge mt-3">
-                      <span className="badge bg-primary-custom text-white px-3 py-2 rounded-pill">
-                        {item.highlight}
-                      </span>
-                    </div>
-                  )}
                 </Card.Body>
               </Card>
             </Col>

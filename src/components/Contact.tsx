@@ -69,26 +69,26 @@ const Contact: React.FC = () => {
         <h2 className="text-center fw-bold mb-3 text-dark section-title">{translations.contactTitle}</h2>
         <p className="text-center mb-5 text-secondary">{translations.contactSubtitle}</p>
         <Row className="justify-content-center">
-          {/* Lado Izquierdo: Información de Contacto */}
+
           <Col lg={5} className="mb-4 mb-lg-0 text-center text-lg-start">
             <h3 className="fw-bold mb-4">{translations.customer_support}</h3>
             <p className="mb-4 text-secondary">{translations.customer_support_description}</p>
             <div className="d-flex flex-column align-items-center align-items-lg-start">
-              {/* Teléfono */}
+
               <div className="mb-3 d-flex align-items-center">
                 <i className="bi bi-telephone fs-4 me-3 text-secondary-custom"></i>
                 <a href={`tel:${translations.contactPhone}`} className="text-secondary text-decoration-none">
                   <span className="fw-bold">{translations.contactPhone}</span>
                 </a>
               </div>
-              {/* Dirección */}
+
               <div className="mb-3 d-flex align-items-center">
                 <i className="bi bi-geo-alt fs-4 me-3 text-secondary-custom"></i>
                 <a href="#map-section" className="text-secondary text-decoration-none">
                   <span className="fw-bold">{translations.contactAddress}</span>
                 </a>
               </div>
-              {/* Horario */}
+
               <div className="mb-3 d-flex align-items-center">
                 <i className="bi bi-clock fs-4 me-3 text-secondary-custom"></i>
                 <div>
@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
           </Col>
-          {/* Lado Derecho: Formulario de Contacto */}
+
           <Col lg={6}>
             <Card className="shadow-sm border-0 rounded-3">
               <Card.Body>
@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="rounded-pill"
+                      className="rounded-2"
                     />
                     <Form.Control.Feedback type="invalid">
                       {translations.formNameRequired}
@@ -132,8 +132,8 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      required // He hecho este campo obligatorio ya que es crucial para la comunicación
-                      className="rounded-pill"
+                      required
+                      className="rounded-2"
                     />
                     <Form.Control.Feedback type="invalid">
                       {translations.formEmailInvalid}
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="rounded-pill"
+                      className="rounded-2"
                     />
                     <Form.Control.Feedback type="invalid">
                       {translations.formPhoneRequired}
@@ -162,13 +162,13 @@ const Contact: React.FC = () => {
                       name="additionalComments"
                       value={formData.additionalComments}
                       onChange={handleChange}
-                      className="rounded-3"
+                      className="rounded-2"
                     />
                   </Form.Group>
                   <Button
                     variant="primary"
                     type="submit"
-                    className="btn-social-media w-100 mt-3 rounded-pill"
+                    className="btn-social-media w-100 mt-3 rounded-2"
                     disabled={formStatus.submitting}
                   >
                     {formStatus.submitting ? translations.formSending : translations.formButton}

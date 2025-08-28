@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                 <i className="bi bi-twitter-x"></i>
               </a>
               */}
-              <a href="https://www.instagram.com/accessstore.es?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-white fs-4 hover-effect">
+              <a href="https://www.instagram.com/accessstore.es?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="social-media-icon text-white fs-4 hover-effect">
                 <i className="bi bi-instagram"></i>
               </a>
             </div>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
         <hr className="border-secondary my-5" />
         <Row className="justify-content-between align-items-center">
           <Col xs={12} md={6} className="text-center text-md-start">
-            <p className="text-white-50 mb-3"> <b>{translations.brand} © {currentYear}</b>. All Rights Reserved.</p>
+            <p className="text-white-50 mb-3"> <b className=' text-white fw-bold'>{translations.brand}</b> <b>© {currentYear}</b>. All Rights Reserved.</p>
             <LanguageSwitcher />
           </Col>
           
