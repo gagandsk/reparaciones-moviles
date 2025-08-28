@@ -61,9 +61,13 @@ const Header = () => {
           to="/" 
           className="d-lg-block p-2"
         >
+        
           <span className="fw-bold fs-5" style={{ color: "#F7E741" }}>
             {translations.brand}
           </span>
+          
+
+          
         </Navbar.Brand>
         
         <Navbar.Toggle 
@@ -152,6 +156,7 @@ const Header = () => {
             
             <Nav.Link
               className="medium-gray custom-nav-link"
+              style={{marginLeft: "1.5vh"}}
               onClick={(e) => { 
                 e.preventDefault(); 
                 handleNavigation('/business', navigate); 
@@ -163,6 +168,9 @@ const Header = () => {
             </Nav.Link>
           </Nav>
 
+          
+          <hr className="custom-border-menu border-secondary"/>
+          
           <Nav className="ms-auto align-items-lg-center">
             <Nav.Link
               className="medium-gray custom-nav-link custom-repair-device-btn-device"

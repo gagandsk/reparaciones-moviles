@@ -6,7 +6,7 @@ const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <Dropdown>
+    <Dropdown className='lang-switch'>
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" className="bg-gray text-white border-secondary my-3">
         <i className="bi bi-globe"></i>
       </Dropdown.Toggle>

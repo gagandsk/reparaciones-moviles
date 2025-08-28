@@ -775,34 +775,6 @@ button a{
   100% { transform: scale(1.2); }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .budget-section {
-    padding: 4rem 0;
-  }
-  .modern-card {
-    margin: 0 1rem;
-  }
-  .step-circle {
-    width: 40px;
-    height: 40px;
-    font-size: 14px;
-  }
-  .step-label {
-    font-size: 12px;
-  }
-  .modern-input {
-    font-size: 14px !important;
-    padding: 12px 15px !important;
-  }
-  .btn-modern {
-    font-size: 14px;
-  }
-  .trust-item {
-    margin-bottom: 1rem;
-  }
-}
-
 /* Repair Selection Section */
 .repair-selection-section {
   background: linear-gradient(135deg, #e6f0fa 0%, #f0f4f8 100%);
@@ -897,52 +869,64 @@ button a{
   transform: scale(1.1);
 }
 
+/* Navbar Custom Styles */
+.bg-dark-custom {
+  background-color: #212529; /* Dark theme consistent with your design */
+}
+
+.custom-nav-link,
+.custom-dropdown {
+  color: #adb5bd; /* Medium gray as base color */
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.custom-dropdown-item {
+  color: #adb5bd;
+  padding: 0.5rem 1.5rem;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: var(--darkGray) !important;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link,
+.dropdown-item {
+  background-color: transparent !important;
+}
+
+@keyframes zoomPanRight {
+  0% {
+    opacity: 0.7; /* Inicia un poco transparente para una entrada más suave */
+    transform: scale(1); /* Escala inicial */
+    background-position: 0% 50%; /* Posición inicial del fondo (izquierda) */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1); /* Zoom final del 10% */
+    background-position: 100% 50%; /* Mueve el fondo hacia la derecha */
+  }
+}
+
+
+@keyframes fadeInTitle {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.accordion-button:not(.collapsed){
+  background-color: var(--yellow-bright) !important;
+  color: var(--gray) !important;
+  font-weight: 600;
+}
+
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-  .repair-selection-section {
-    padding: 4rem 0;
-  }
-
-  .custom-repair-device-btn-device{
-    width: 30vh;
-    padding: 10px !important;
-    margin: 1vh 0 !important;
-  }
-
-  .repair-option {
-    font-size: 1.1rem;
-  }
-
-  .repair-number {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-  }
-
-  .mobile-image {
-    max-width: 80%;
-  }
-
-  .marker {
-    width: 30px;
-    height: 30px;
-  }
-}
-
-@media (max-width: 576px) {
-  .repair-selection-section {
-    padding: 3rem 0;
-  }
-
-  .repair-option {
-    font-size: 1rem;
-  }
-
-  .mobile-image {
-    max-width: 60%;
-  }
-}
-
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -996,7 +980,72 @@ button a{
     background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 1%, rgba(0, 0, 0, 0.2) 90%);
     z-index: 1;
   }
+  .modern-input {
+    font-size: 14px !important;
+    padding: 12px 15px !important;
+  }
+
+  .modern-card{
+    border: none !important;
+    background-color: var(--light-gray);
+  }
   
+  .btn-modern {
+    font-size: 14px;
+  }
+  .trust-item {
+    margin-bottom: 1rem;
+  }
+   .repair-selection-section {
+    padding: 4rem 0;
+  }
+
+  .custom-repair-device-btn-device{
+    width: 30vh;
+    padding: 10px !important;
+    margin: 1vh 0 !important;
+    margin-top: 1vh !important;
+    margin-bottom: 2vh !important;
+  }
+
+  .custom-dropdown .dropdown-menu{
+    border: none !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    padding: 0 2vh !important;
+  }
+
+  .dropdown-menu .dropdown-item{
+    padding: 1vh 0 !important;
+    margin-left: 2vh !important;
+  }
+
+  .lang-switch{
+    margin-left: 1vh;
+    padding: 1vh 0 !important;
+  }
+
+  .custom-border-menu{
+    display: flex;
+  }
+  .repair-option {
+    font-size: 1.1rem;
+  }
+
+  .repair-number {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .mobile-image {
+    max-width: 80%;
+  }
+
+  .marker {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1034,42 +1083,19 @@ button a{
     font-size: 0.9rem;
     padding: 0.9rem;
   }
+
+  .repair-selection-section {
+    padding: 3rem 0;
+  }
+
+  .repair-option {
+    font-size: 1rem;
+  }
+
+  .mobile-image {
+    max-width: 60%;
+  }
 }
-
-/* Existing CSS content... */
-
-/* Navbar Custom Styles */
-.bg-dark-custom {
-  background-color: #212529; /* Dark theme consistent with your design */
-}
-
-.custom-nav-link,
-.custom-dropdown {
-  color: #adb5bd; /* Medium gray as base color */
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.custom-dropdown-item {
-  color: #adb5bd;
-  padding: 0.5rem 1.5rem;
-  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.custom-dropdown .dropdown-menu {
-  background-color: var(--darkGray) !important;
-  border: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.nav-link,
-.dropdown-item {
-  background-color: transparent !important;
-}
-
-/* Responsive Adjustments */
 @media (max-width: 992px) {
   .custom-nav-link,
   .custom-dropdown {
@@ -1087,30 +1113,4 @@ button a{
   .request_quote{
     font-size: 14px !important;
   }
-}
-
-@keyframes zoomPanRight {
-  0% {
-    opacity: 0.7; /* Inicia un poco transparente para una entrada más suave */
-    transform: scale(1); /* Escala inicial */
-    background-position: 0% 50%; /* Posición inicial del fondo (izquierda) */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.1); /* Zoom final del 10% */
-    background-position: 100% 50%; /* Mueve el fondo hacia la derecha */
-  }
-}
-
-
-@keyframes fadeInTitle {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-.accordion-button:not(.collapsed){
-  background-color: var(--yellow-bright) !important;
-  color: var(--gray) !important;
-  font-weight: 600;
 }

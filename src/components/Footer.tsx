@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useNavigate } from 'react-router-dom';
 import { handleNavigation, useScrollOnNavigation } from '../utils/navigation-utils';
+import logo from "../assets/logo-with-icon.png";
 
 const Footer: React.FC = () => {
   const { translations } = useLanguage();
@@ -12,12 +13,17 @@ const Footer: React.FC = () => {
   const navigate = useNavigate();
   useScrollOnNavigation();
   return (
-    <footer className="bg-dark-custom text-white py-5">
+    <footer className="bg-dark-custom text-white py-5 px-2">
       <Container>
         <Row className="g-4">
           <Col md={3}>
             <div className="mb-4">
-              <h4 className="fw-bold fs-4" style={{ color: "#F7E741"}}>{translations.brand}</h4>
+              <img
+                src={logo}
+                alt="Access Store"
+                height="75"
+                style={{ width: 'auto', marginLeft: "-20px" }}
+              />
             </div>
             <h6 className="fw-bold mb-3">{translations.hoursTitle}</h6>
             <p className="text-white-50 mb-1">{translations.mondaySaturdayMorning}</p>
@@ -81,6 +87,7 @@ const Footer: React.FC = () => {
         </Row>
         <hr className="border-secondary my-5" />
         <Row className="justify-content-between align-items-center">
+          
           <Col xs={12} md={6} className="text-center text-md-start">
             <p className="text-white-50 mb-3"> <b className=' text-white fw-bold'>{translations.brand}</b> <b>© {currentYear}</b>. All Rights Reserved.</p>
             <LanguageSwitcher />

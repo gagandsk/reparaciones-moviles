@@ -417,7 +417,7 @@ const BudgetForm: React.FC = () => {
     <section id="budget-calc" className="budget-section py-6">
       <Container>
         <div className="text-center mb-5">
-          <Badge bg="bg-gray" className="px-3 py-2 rounded-pill mb-3">
+          <Badge bg="bg-gray" className="text-dark px-3 py-2 rounded-pill mb-3">
             <i className="bi bi-calculator me-2"></i>
             {translations.freeBudget}
           </Badge>
@@ -429,7 +429,7 @@ const BudgetForm: React.FC = () => {
           </p>
         </div>
         <Row className="justify-content-center">
-          <Col lg={10} xl={8}>
+          <Col lg={10} xl={8} xs={12}>
             <Card className="modern-card shadow-lg border-0 rounded-4 overflow-hidden" ref={cardRef}>
               <Card.Body className="p-5">
                 {formStatus.submitted && (
