@@ -208,7 +208,7 @@ const BudgetForm: React.FC = () => {
               <Col md={12}>
                 <Form.Group className="mb-5" controlId="formName">
                   <Form.Label className="text-muted mb-2 fw-semibold">
-                    <i className="bi bi-person me-2 text-primary"></i>
+                    <i className="bi bi-person me-2 text-warning"></i>
                     {translations.formName}
                   </Form.Label>
                   <Form.Control
@@ -228,7 +228,7 @@ const BudgetForm: React.FC = () => {
               <Col md={6}>
                 <Form.Group className="mb-5" controlId="formEmail">
                   <Form.Label className="text-muted mb-2 fw-semibold">
-                    <i className="bi bi-envelope me-2 text-primary"></i>
+                    <i className="bi bi-envelope me-2 text-warning"></i>
                     {translations.formEmail}
                   </Form.Label>
                   <Form.Control
@@ -248,7 +248,7 @@ const BudgetForm: React.FC = () => {
               <Col md={6}>
                 <Form.Group className="mb-5" controlId="formPhone">
                   <Form.Label className="text-muted mb-2 fw-semibold">
-                    <i className="bi bi-telephone me-2 text-primary"></i>
+                    <i className="bi bi-telephone me-2 text-warning"></i>
                     {translations.formPhone}
                   </Form.Label>
                   <Form.Control
@@ -282,7 +282,7 @@ const BudgetForm: React.FC = () => {
             </div>
             <Form.Group className="mb-5" controlId="formBrand">
               <Form.Label className="text-muted mb-3 fw-semibold">
-                <i className="bi bi-tag me-2 text-success"></i>
+                <i className="bi bi-tag me-2 text-warning"></i>
                 {translations.select_device_brand}
               </Form.Label>
               <Row className="g-3">
@@ -312,7 +312,7 @@ const BudgetForm: React.FC = () => {
             </Form.Group>
             <Form.Group className="mb-5" controlId="formModel">
               <Form.Label className="text-muted mb-2 fw-semibold">
-                <i className="bi bi-phone-vibrate me-2 text-success"></i>
+                <i className="bi bi-phone-vibrate me-2 text-warning"></i>
                 {translations.formModel}
               </Form.Label>
               <Form.Control
@@ -326,7 +326,7 @@ const BudgetForm: React.FC = () => {
             </Form.Group>
             <Form.Group className="mb-5" controlId="formProblem">
               <Form.Label className="text-muted mb-3 fw-semibold">
-                <i className="bi bi-exclamation-circle me-2 text-success"></i>
+                <i className="bi bi-exclamation-circle me-2 text-warning"></i>
                 {translations.what_is_the_problem}
               </Form.Label>
               <Row className="g-3">
@@ -370,7 +370,7 @@ const BudgetForm: React.FC = () => {
             </div>
             <Form.Group className="mb-5" controlId="formAdditionalComments">
               <Form.Label className="text-muted mb-2 fw-semibold">
-                <i className="bi bi-chat-square-text me-2 text-info"></i>
+                <i className="bi bi-chat-square-text me-2 text-warning"></i>
                 {translations.formAdditionalComments}
               </Form.Label>
               <Form.Control
@@ -389,7 +389,7 @@ const BudgetForm: React.FC = () => {
             </Form.Group>
             <Card className="summary-card bg-light border-1 rounded-4 p-4">
               <h5 className="fw-bold mb-3">
-                <i className="bi bi-clipboard-check me-2 text-success"></i>
+                <i className="bi bi-clipboard-check me-2 text-warning"></i>
                 {translations.request_summary}
               </h5>
               <Row>

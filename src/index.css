@@ -931,51 +931,45 @@ button a{
   .section-title {
     font-size: 2rem;
   }
-  
+  .hero-title{
+    font-size: 2rem !important;
+  }
+  .card-title {
+    font-size: 1.1rem;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
   .section-description {
     font-size: 1rem;
   }
-  
   .icon-wrapper {
     width: 70px;
     height: 70px;
   }
-  
   .icon-main {
     font-size: 2rem !important;
   }
-  
-  .card-title {
-    font-size: 1.1rem;
-  }
-  
   .trust-item h3 {
     font-size: 1.8rem;
+     color: var(--gray) !important;
   }
   .budget-section {
     padding: 4rem 0;
   }
-
-  .section-title {
-    font-size: 2.2rem;
-  }
-
   .budget-card {
     padding: 2.5rem;
     border-radius: 1.2rem;
   }
-
   .budget-card .form-control,
   .budget-card .form-select {
     font-size: 0.95rem;
     padding: 0.9rem 1rem;
   }
-
   .budget-card .btn-primary-custom {
     font-size: 0.95rem;
     padding: 1rem;
   }
-
   .hero-overlay-custom {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 1%, rgba(0, 0, 0, 0.2) 90%);
     z-index: 1;
@@ -984,22 +978,21 @@ button a{
     font-size: 14px !important;
     padding: 12px 15px !important;
   }
-
   .modern-card{
     border: none !important;
     background-color: var(--light-gray);
   }
-  
   .btn-modern {
     font-size: 14px;
   }
   .trust-item {
     margin-bottom: 1rem;
+    box-shadow: none !important;
+    background-color: var(--light-color) !important;
   }
-   .repair-selection-section {
+  .repair-selection-section {
     padding: 4rem 0;
   }
-
   .custom-repair-device-btn-device{
     width: 30vh;
     padding: 10px !important;
@@ -1007,41 +1000,34 @@ button a{
     margin-top: 1vh !important;
     margin-bottom: 2vh !important;
   }
-
   .custom-dropdown .dropdown-menu{
     border: none !important;
     box-shadow: none !important;
     margin-top: 0 !important;
     padding: 0 2vh !important;
   }
-
   .dropdown-menu .dropdown-item{
     padding: 1vh 0 !important;
     margin-left: 2vh !important;
   }
-
   .lang-switch{
     margin-left: 1vh;
     padding: 1vh 0 !important;
   }
-
   .custom-border-menu{
     display: flex;
   }
   .repair-option {
     font-size: 1.1rem;
   }
-
   .repair-number {
     width: 25px;
     height: 25px;
     line-height: 25px;
   }
-
   .mobile-image {
     max-width: 80%;
   }
-
   .marker {
     width: 30px;
     height: 30px;
